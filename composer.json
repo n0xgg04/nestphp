@@ -1,0 +1,22 @@
+{
+  "name": "n0xgg04/nestphp",
+  "author": "n0xgg04",
+  "version": "1.0.0",
+  "scripts": {
+    "post-install-cmd": [
+      "composer dump-autoload"
+    ],
+    "post-update-cmd": [
+      "composer dump-autoload"
+    ]
+  },
+  "autoload": {
+    "psr-4": {
+      "Common\\": "src/Common/",
+      "App\\": "src/App/"
+    },
+    "files": [
+      "src/Common/Helpers/index.php"
+    ]
+  }
+}
