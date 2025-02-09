@@ -1,32 +1,30 @@
 <?php
 
-    namespace Common\Core;
+namespace Common\Core;
 
-    use AllowDynamicProperties;
-    use Closure;
-    use Common\Core\Container;
+use AllowDynamicProperties;
+use Closure;
 
+#[AllowDynamicProperties]
+class ContextualBindingBuilder
+{
+    protected Container $container;
+    protected string $concrete;
 
-    #[AllowDynamicProperties]
-    class ContextualBindingBuilder
+    public function __construct(Container $container, string $concrete)
     {
-        protected Container $container;
-        protected string $concrete;
-
-        public function __construct(Container $container, string $concrete)
-        {
-            $this->container = $container;
-            $this->concrete = $concrete;
-        }
-
-        public function needs(string $abstract): self
-        {
-            $this->abstract = $abstract;
-            return $this;
-        }
-
-        public function give(string|Closure $implementation): void
-        {
-            $this->container->contextualBindings[$this->abstract] = $implementation;
-        }
+        $this->container = $container;
+        $this->concrete = $concrete;
     }
+
+    public function needs(string $abstract): self
+    {
+        $this->abstract = $abstract;
+        return $this;
+    }
+
+    public function give(string|Closure $implementation): void
+    {
+        $this->container->contextualBindings[$this->abstract] = $implementation;
+    }
+}

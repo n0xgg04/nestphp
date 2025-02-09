@@ -1,16 +1,31 @@
 <?php
 
-    namespace App\Modules\Pages;
+namespace App\Modules\Pages;
 
-    use Common\Routing\Annotations\Controller;
-    use Common\Routing\Annotations\Methods\Get;
+use Common\Helpers\Exceptions\ConfigFileNotFound;
+use Common\Helpers\Exceptions\ConfigFileNotValid;
+use Common\Http\Annotations\Body;
+use Common\Routing\Annotations\Controller;
+use Common\Routing\Annotations\Methods\{Get, Post};
 
-    #[Controller('home')]
-    class HomeController
+#[Controller("home")]
+readonly class HomeController
+{
+    public function __construct() {}
+
+    #[Post("/")]
+    public function landingPage(#[Body] HomeDTO $body)
     {
-        #[Get("/")]
-        public function landingPage(): mixed
-        {
-            return view("a");
-        }
+       // return $this->homeService->getHomeMessage();
     }
+
+    /**
+     * @throws ConfigFileNotValid
+     * @throws ConfigFileNotFound
+     */
+    #[Get("/test")]
+    public function testPage(): mixed
+    {
+        return view(path: "home");
+    }
+}

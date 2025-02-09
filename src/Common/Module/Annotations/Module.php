@@ -1,16 +1,25 @@
 <?php
+    namespace Common\Module\Annotations;
 
-        namespace Common\Module\Annotations;
+    use Attribute;
 
-        use Attribute;
+    #[Attribute(Attribute::TARGET_CLASS)]
+    class Module
+    {
+        public array $controller;
+        public array $providers;
+        public array $import;
+        public array $export;
 
-        #[Attribute(Attribute::TARGET_METHOD | Attribute::TARGET_CLASS)]
-        class Module
-        {
-            /**
-             * @param array $config
-             */
-            public function __construct(
-                public array $config
-            ) {}
+        public function __construct(
+            array $controller = [],
+            array $providers = [],
+            array $import = [],
+            array $export = []
+        ) {
+            $this->controller = $controller;
+            $this->providers = $providers;
+            $this->import = $import;
+            $this->export = $export;
         }
+    }

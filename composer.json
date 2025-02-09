@@ -8,7 +8,8 @@
     ],
     "post-update-cmd": [
       "composer dump-autoload"
-    ]
+    ],
+    "serve": "php -S localhost:8000 -t public"
   },
   "autoload": {
     "psr-4": {
@@ -18,5 +19,8 @@
     "files": [
       "src/Common/Helpers/index.php"
     ]
+  },
+  "require": {
+    "zero-to-prod/data-model-helper": "^81.11"
   }
 }

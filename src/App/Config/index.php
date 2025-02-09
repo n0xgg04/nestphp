@@ -1,6 +1,6 @@
 <?php
-    use App\Modules\Pages\HomeModule;
+use App\Modules\Pages\HomeModule;
 
-    return [
-      "root_module" => HomeModule::class
-    ];
+return [
+    "root_module" => HomeModule::class,
+];

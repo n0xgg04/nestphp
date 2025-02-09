@@ -1,12 +1,11 @@
 <?php
-    namespace App\Modules\Pages;
+namespace App\Modules\Pages;
 
-    use Common\Module\Annotations\Module;
+use Common\Module\Annotations\Module;
+use Common\Module\BaseModule;
 
-    #[Module(
-        [
-            "Controller" => [HomeController::class],
-            "Provider" => []
-        ]
-    )]
-    class HomeModule{}
+#[Module(
+    controller: [HomeController::class],
+    providers: [HomeService::class]
+)]
+class HomeModule extends BaseModule{}

@@ -8,10 +8,10 @@
     <title>Document</title>
 </head>
 <body>
- <p>Dmm ss</p>
  <?php
-     echo "Current route:".current_route();
-     echo time();
+ echo container()->make(\Common\Http\Request::class)->method;
  ?>
+
+ua alo
 </body>
 </html>

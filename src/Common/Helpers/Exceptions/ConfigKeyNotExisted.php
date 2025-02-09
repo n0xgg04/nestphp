@@ -1,14 +1,13 @@
 <?php
 
-    namespace Common\Helpers\Exceptions;
+namespace Common\Helpers\Exceptions;
 
-    use Exception;
+use Exception;
 
-    class ConfigKeyNotExisted extends Exception
+class ConfigKeyNotExisted extends Exception
+{
+    public function __construct(public string $key)
     {
-        public function __construct(
-            public string $key
-        ) {
-            parent::__construct("Config key {$key} not existed");
-        }
+        parent::__construct("Config key {$key} not existed");
     }
+}

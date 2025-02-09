@@ -1,10 +1,10 @@
 <?php
-    namespace Common\Http\Traits;
+namespace Common\Http\Traits;
 
-    trait RequestResolver
+trait RequestResolver
+{
+    public function getMethod()
     {
-        public function getMethod()
-        {
-            return $_SERVER['REQUEST_METHOD'];
-        }
+        return $_SERVER["REQUEST_METHOD"];
     }
+}

@@ -1,13 +1,12 @@
 <?php
-    namespace Common\Helpers\Exceptions;
+namespace Common\Helpers\Exceptions;
 
-    use Exception;
+use Exception;
 
-    class ConfigFileNotValid extends Exception
+class ConfigFileNotValid extends Exception
+{
+    public function __construct(public string $file)
     {
-        public function __construct(
-            public string $file
-        ) {
-            parent::__construct("Config {$file} not valid");
-        }
+        parent::__construct("Config {$file} not valid");
     }
+}

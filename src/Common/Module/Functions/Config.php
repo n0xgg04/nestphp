@@ -1,14 +1,14 @@
 <?php
 
-    namespace Common\Module\Functions;
+namespace Common\Module\Functions;
 
-    class Config
+class Config
+{
+    public static function from(array $controller, array $provider): array
     {
-        static public function from(array $controller, array $provider): array
-        {
-            return [
-                "controller" => $controller,
-                "provider" => $provider
-            ];
-        }
+        return [
+            "controller" => $controller,
+            "provider" => $provider,
+        ];
     }
+}
